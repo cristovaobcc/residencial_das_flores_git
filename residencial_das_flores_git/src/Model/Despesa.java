@@ -4,6 +4,7 @@
 package Model;
 
 /**
+ * Representa a despesa gerada por um condomínio.
  * @author cristovao.lima
  *
  */
