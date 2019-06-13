@@ -25,9 +25,9 @@ public class controllerPrincipal implements ActionListener{
 		controllerlogin.viewprincipal.getButtonCadastroItem().addActionListener(this);
 		controllerlogin.viewprincipal.getButtonCadastroItem().addActionListener(this);
 		
-		StatusApartamentos.CalcularAlugados();
-		StatusApartamentos.CalcularDisponiveis();
-		StatusApartamentos.CalcularTotal();
+		StatusApartamentos.calcularAlugados();
+		StatusApartamentos.calcularDisponiveis();
+		StatusApartamentos.calcularTotal();
 		controllerlogin.viewprincipal.getLabelNumeroApt().setText(StatusApartamentos.getTotal()+"");
 		controllerlogin.viewprincipal.getLabelNumeroAptAlg().setText(StatusApartamentos.getAlugados()+"");
 		controllerlogin.viewprincipal.getLabelNumeroAptDsp().setText(StatusApartamentos.getDisponiveis()+"");
@@ -37,7 +37,7 @@ public class controllerPrincipal implements ActionListener{
 	
 	public void actionPerformed(ActionEvent e) {
 		if(e.getSource() == controllerlogin.viewprincipal.getMenuItemControleMoradores()) {
-			StatusApartamentos.AtualizarDisponibilidade(controllerlogin);
+			StatusApartamentos.atualizarDisponibilidade(controllerlogin);
 			controllerlogin.viewmorador.setVisible(true);
 		}
 		if(e.getSource() == controllerlogin.viewprincipal.getButtonCadastroApt()) {

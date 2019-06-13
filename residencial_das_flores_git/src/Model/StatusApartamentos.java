@@ -20,20 +20,20 @@ public class StatusApartamentos {
 		return total;
 	}
 	
-	public static void CalcularTotal() {
+	public static void calcularTotal() {
 		total = BaseDados.getApartamentos().size();
 	}
-	public static void CalcularAlugados() {
+	public static void calcularAlugados() {
 		int total=0;
 		for(Apartamento a:BaseDados.getApartamentos()) {
-			if(a.getTipoOcupacao().equals("Proprietário") || a.getTipoOcupacao().equals("Inquilino")) {
+			if(a.getTipoOcupacao().equals("Proprietï¿½rio") || a.getTipoOcupacao().equals("Inquilino")) {
 				total++;
 			}
 		}
 		alugados=total;
 	}
 	
-	public static void CalcularDisponiveis() {
+	public static void calcularDisponiveis() {
 		int total=0;
 		for(Apartamento a:BaseDados.getApartamentos()) {
 			if(a.getTipoOcupacao().equals("Vazio")) {
@@ -42,7 +42,7 @@ public class StatusApartamentos {
 		}
 		disponiveis=total;
 	}
-	public static void AtualizarDisponibilidade(controllerLogin controllerlogin) {
+	public static void atualizarDisponibilidade(controllerLogin controllerlogin) {
 		
 			controllerlogin.viewmorador.getCombobox().removeAllItems();
 			

@@ -23,7 +23,7 @@ public class controllerRemoverMorador extends Observable implements ActionListen
 		for(Morador morador : BaseDados.moradores) {
 			controllerlogin.viewmorador.getAreaText().append(
 					"********Dados*********" +
-					"\nHóspede do Quarto Nº"+morador.numeroapartamento +
+					"\nHï¿½spede do Quarto Nï¿½"+morador.numeroapartamento +
 					"\nNome : "+ morador.nome +
 					"\nCPF : "+ morador.cpf +
 					"\nRG : "+ morador.rg +
@@ -45,19 +45,19 @@ public class controllerRemoverMorador extends Observable implements ActionListen
 			}
 			
 			else if(BaseDados.existeMorador(controllerlogin.removermorador.getFieldCpf().getText()) == false) {
-				TelaMensagem.Exibir("CPF não encontrado ou removido!");
+				TelaMensagem.Exibir("CPF nï¿½o encontrado ou removido!");
 			}
 			
 			else {
 			Apartamento a = BaseDados.Buscar(BaseDados.buscarMorador(controllerlogin.removermorador.getFieldCpf().getText()).getNumeroapartamento());
 			a.setTipoOcupacao("Vazio");
 			
-			StatusApartamentos.CalcularAlugados();
-			StatusApartamentos.CalcularDisponiveis();
-			StatusApartamentos.CalcularTotal();
+			StatusApartamentos.calcularAlugados();
+			StatusApartamentos.calcularDisponiveis();
+			StatusApartamentos.calcularTotal();
 			setChanged();
 			notifyObservers();
-			StatusApartamentos.AtualizarDisponibilidade(controllerlogin);
+			StatusApartamentos.atualizarDisponibilidade(controllerlogin);
 			
 			BaseDados.removerMorador(controllerlogin.removermorador.getFieldCpf().getText());
 			TelaMensagem.Exibir("Morador removido com Sucesso!");

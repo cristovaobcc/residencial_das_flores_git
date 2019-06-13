@@ -24,7 +24,7 @@ public class controllerMorador extends Observable implements ActionListener {
 		controllerlogin.viewmorador.getAlterarButton().addActionListener(this);
 		controllerlogin.viewmorador.getRemoverButton().addActionListener(this);
 		controllerlogin.viewmorador.getSairButton().addActionListener(this);
-		StatusApartamentos.AtualizarDisponibilidade(controllerlogin);
+		StatusApartamentos.atualizarDisponibilidade(controllerlogin);
 		}
 	
 	
@@ -33,7 +33,7 @@ public class controllerMorador extends Observable implements ActionListener {
 		for(Morador morador : BaseDados.moradores) {
 			controllerlogin.viewmorador.getAreaText().append(
 					"********Dados*********" +
-					"\nHóspede do Quarto Nº"+morador.numeroapartamento +
+					"\nHï¿½spede do Quarto Nï¿½"+morador.numeroapartamento +
 					"\nNome : "+ morador.nome +
 					"\nCPF : "+ morador.cpf +
 					"\nRG : "+ morador.rg +
@@ -62,9 +62,9 @@ public class controllerMorador extends Observable implements ActionListener {
 						controllerlogin.viewmorador.getCombobox().getSelectedItem()+"");
 				Apartamento a = BaseDados.Buscar((String)controllerlogin.viewmorador.getCombobox().getSelectedItem());
 				a.setTipoOcupacao("Inquilino");
-				StatusApartamentos.CalcularAlugados();
-				StatusApartamentos.CalcularDisponiveis();
-				StatusApartamentos.CalcularTotal();
+				StatusApartamentos.calcularAlugados();
+				StatusApartamentos.calcularDisponiveis();
+				StatusApartamentos.calcularTotal();
 				setChanged();
 				notifyObservers();
 				

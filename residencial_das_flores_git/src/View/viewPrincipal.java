@@ -150,7 +150,7 @@ public class viewPrincipal extends JFrame implements Observer{
 		labelQtdAptAlg.setBounds(208, 118, 188, 14);
 		panelPrincipal.add(labelQtdAptAlg);
 		
-		labelQtdAptDsp = new JLabel("Total Apartamentos Disponíveis : ");
+		labelQtdAptDsp = new JLabel("Total Apartamentos Disponï¿½veis : ");
 		labelQtdAptDsp.setBounds(208, 151, 190, 14);
 		panelPrincipal.add(labelQtdAptDsp);
 		
@@ -268,9 +268,9 @@ public class viewPrincipal extends JFrame implements Observer{
 
 	@Override
 	public void update(Observable o, Object arg) {
-		StatusApartamentos.CalcularAlugados();
-		StatusApartamentos.CalcularDisponiveis();
-		StatusApartamentos.CalcularTotal();
+		StatusApartamentos.calcularAlugados();
+		StatusApartamentos.calcularDisponiveis();
+		StatusApartamentos.calcularTotal();
 		labelNumeroApt.setText(StatusApartamentos.getTotal()+"");
 	
 		labelNumeroAptDsp.setText(StatusApartamentos.getDisponiveis()+"");
