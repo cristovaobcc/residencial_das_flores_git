@@ -16,7 +16,6 @@ import javax.swing.JRadioButton;
 import javax.swing.JTextArea;
 import javax.swing.JTextField;
 
-import Model.Apartamento;
 
 /**
  * Tela que representa o registro de despesas.
@@ -41,7 +40,7 @@ public class ViewRegistrarDespesas extends JFrame {
 	despesaConjuntaRadioButton;
 	private JButton registrarButton,
 	cancelarButton;
-	private JComboBox<Apartamento> aptosComboBox;
+	private JComboBox<String> aptosComboBox;
 	private ButtonGroup despesasButtonGroup;
 	/**
 	 *
@@ -49,9 +48,9 @@ public class ViewRegistrarDespesas extends JFrame {
 	public ViewRegistrarDespesas() {
 		super("Registar despesa");
 		idLabel = new JLabel("Id");
-		dataLancamentoLabel = new JLabel("Data Lançamento");
+		dataLancamentoLabel = new JLabel("Data Lanï¿½amento");
 		dataPagamentoLabel = new JLabel("Data pagamento");
-		descricaoLabel = new JLabel("Descrição");
+		descricaoLabel = new JLabel("Descriï¿½ï¿½o");
 		valorLabel = new JLabel("Valor R$");
 		selecioneAptoLabel = new JLabel("Selecione o apartamento");
 		descricaoTextArea = new JTextArea(2, 15); // TODO: Ver o quanto precisa ajustar.
@@ -64,7 +63,7 @@ public class ViewRegistrarDespesas extends JFrame {
 		despesaConjuntaRadioButton = new JRadioButton("Despesa conjunta");
 		registrarButton = new JButton("Registrar");
 		cancelarButton = new JButton("Cancelar");
-		aptosComboBox = new JComboBox<Apartamento>();
+		aptosComboBox = new JComboBox<String>();// TODO: criar um mÃ©todo lÃ¡ no Controller para carregar com os numeros dos aptos.
 		despesasButtonGroup = new ButtonGroup();
 
 		despesasButtonGroup.add(despesaConjuntaRadioButton);
@@ -80,13 +79,13 @@ public class ViewRegistrarDespesas extends JFrame {
 	/**
 	 * @return the aptosComboBox
 	 */
-	public JComboBox<Apartamento> getAptosComboBox() {
+	public JComboBox<String> getAptosComboBox() {
 		return aptosComboBox;
 	}
 	/**
 	 * @param aptosComboBox the aptosComboBox to set
 	 */
-	public void setAptosComboBox(JComboBox<Apartamento> aptosComboBox) {
+	public void setAptosComboBox(JComboBox<String> aptosComboBox) {
 		this.aptosComboBox = aptosComboBox;
 	}
 	/**
