@@ -72,8 +72,8 @@ public class viewPrincipal extends JFrame implements Observer{
 		
 		menuItens = new JMenu("Itens");
 		menuBar.add(menuItens);	
-		menuItemControleFinancas = new JMenuItem("Controle Itens");
-		menuItens.add(menuItemControleFinancas);
+		menuItemControleItens = new JMenuItem("Controle Itens");
+		menuItens.add(menuItemControleItens);
 		
 		menuSair = new JMenu("Sair");
 		menuBar.add(menuSair);
@@ -150,7 +150,7 @@ public class viewPrincipal extends JFrame implements Observer{
 		labelQtdAptAlg.setBounds(208, 118, 188, 14);
 		panelPrincipal.add(labelQtdAptAlg);
 		
-		labelQtdAptDsp = new JLabel("Total Apartamentos Disponï¿½veis : ");
+		labelQtdAptDsp = new JLabel("Total Apartamentos Disponíveis : ");
 		labelQtdAptDsp.setBounds(208, 151, 190, 14);
 		panelPrincipal.add(labelQtdAptDsp);
 		

@@ -1,10 +1,12 @@
 package Controller;
 
 
+import java.awt.Color;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.awt.event.KeyAdapter;
 import java.awt.event.KeyEvent;
+import java.awt.event.KeyListener;
 import java.awt.event.MouseAdapter;
 import java.awt.event.MouseEvent;
 import java.awt.event.MouseListener;
@@ -35,6 +37,7 @@ public class ControllerApartamento extends Observable {
 		Control();
 	}
 	private void Control() {
+		tela.requestFocus();
 		tela.getCadastrar().addActionListener(new Cadastro());
 		tela.getLimpar().addActionListener(new Cadastro());
 		tela.getCancelar().addActionListener(new Cadastro());
@@ -44,6 +47,8 @@ public class ControllerApartamento extends Observable {
 		tela.getBuscaField().addKeyListener(new AreaBusca());
 		tela.getExcluir().addActionListener(new ConsultaMouse());
 		tela.getEditar().addActionListener(new BotaoEditar());
+		tela.getNaptoField().addMouseListener(new Cadastro());
+		tela.getQuantidadeField().addMouseListener(new Cadastro());
 		tela.getBuscar().addActionListener(new ActionListener() {
 			
 			@Override
@@ -52,20 +57,33 @@ public class ControllerApartamento extends Observable {
 				
 			}
 		});
+		tela.getCadastrar().addKeyListener(new ClasseBotoes());
+		tela.getCancelar().addKeyListener(new ClasseBotoes());
+		tela.getNaptoField().addKeyListener(new ClasseBotoes());
+		tela.getQuantidadeField().addKeyListener(new ClasseBotoes());
+		tela.getTipo().addKeyListener(new ClasseBotoes());
+		tela.getBusca().addKeyListener(new ClasseBotoes());
+		tela.getBuscaField().addKeyListener(new ClasseBotoes());
+		tela.getLimpar().addKeyListener(new ClasseBotoes());
+		
 		
 		tela2.getEditar().addActionListener(new ComandoTelaEditar());
 		tela2.getCancelar().addActionListener(new ComandoTelaEditar());
 		tela2.getLimpar().addActionListener(new ComandoTelaEditar());
 		
+		
+		
 		tela3.viewprincipal.getMenuItemControleApartamentos().addActionListener(new EntrarControleApartamento());
 		
 	}
 	
-	private class Cadastro implements ActionListener{
+	private class Cadastro extends MouseAdapter implements ActionListener{
 
 		@Override
 		public void actionPerformed(ActionEvent e) {
 			if(e.getSource() == tela.getLimpar()) {
+				tela.getNaptoField().setBackground(Color.WHITE);
+				tela.getQuantidadeField().setBackground(Color.WHITE);
 				tela.getNaptoField().setText("");
 				tela.getQuantidadeField().setText("");
 				tela.getTipo().setSelectedIndex(0);
@@ -73,9 +91,16 @@ public class ControllerApartamento extends Observable {
 				tela.getBuscaArea().setText("Dados:");
 			}
 			if (e.getSource() == tela.getCancelar()) {
+				if(JOptionPane.showConfirmDialog(null, "Deseja sair do cadastro?","Alerta",JOptionPane.YES_NO_OPTION)==JOptionPane.YES_OPTION) {
 				tela.dispose();
+				}
 			}
+			
+			
+			
 			if(e.getSource() == tela.getCadastrar()) {
+				if(!tela.getNaptoField().getText().equals("") && !tela.getQuantidadeField().getText().equals("")) {
+				try{
 				String tipo = (String) tela.getTipo().getSelectedItem();
 				if(BaseDados.ExisteApartamento(tela.getNaptoField().getText())) {
 					
@@ -90,12 +115,40 @@ public class ControllerApartamento extends Observable {
 					tela.getLimpar().doClick();
 				}
 				
+				}catch (Exception e1) {
+					
+					TelaMensagem.Exibir("Digite apenas numeros");
+					tela.getQuantidadeField().setBackground(Color.RED);
+				}
+				}else {
+					TelaMensagem.Exibir("Não pode deixar camos em brancos!");
+					if(tela.getNaptoField().getText().equals("")) {
+						tela.getNaptoField().setBackground(Color.RED);
+					}
+					if(tela.getQuantidadeField().getText().equals("")) {
+						tela.getQuantidadeField().setBackground(Color.RED);
+					}
+				}
 				
-				
-				
+				tela.requestFocus();
 			}
 			
 		}
+		@Override
+		public void mouseClicked(MouseEvent e) {
+			if(e.getSource() == tela.getNaptoField()) {
+				tela.getNaptoField().setBackground(Color.WHITE);
+				
+			}
+			if(e.getSource() == tela.getQuantidadeField()) {
+				tela.getQuantidadeField().setBackground(Color.WHITE);
+			}
+			
+		}
+
+		
+
+		
 		
 	}
 	private class ConsultaMouse extends MouseAdapter implements ActionListener{
@@ -265,5 +318,57 @@ public class ControllerApartamento extends Observable {
 			}
 			
 		}}
+	private class ClasseBotoes extends KeyAdapter {
+		@Override
+		public void keyPressed(KeyEvent e) {
+			if(e.getKeyCode() == KeyEvent.VK_ESCAPE) {
+				if(tela.getBusca().hasFocus()) {
+					tela.getCancelar().doClick();
+				}else if(tela.getCancelar().hasFocus()) {
+					tela.getCancelar().doClick();
+				}else if(tela.getCadastrar().hasFocus()) {
+					tela.getCancelar().doClick();
+				}else if(tela.getBuscaField().hasFocus()) {
+					tela.getCancelar().doClick();
+				}else if(tela.getLimpar().hasFocus()) {
+					tela.getCancelar().doClick();
+				}else if(tela2.getEditar().hasFocus()) {
+					tela.getCancelar().doClick();
+				}else if(tela2.getCancelar().hasFocus()) {
+					tela.getCancelar().doClick();
+				}else if(tela2.getLimpar().hasFocus()) {
+					tela.getCancelar().doClick();
+				}else {
+					tela.getCancelar().doClick();
+				}
+			}
+			if(e.getKeyCode() == KeyEvent.VK_ENTER) {
+				if(tela.getBusca().hasFocus()) {
+					tela.getBusca().doClick();
+				}else if(tela.getCancelar().hasFocus()) {
+					tela.getCancelar().doClick();
+				}else if(tela.getCadastrar().hasFocus()) {
+					tela.getCadastrar().doClick();
+				}else if(tela.getBuscaField().hasFocus()) {
+					tela.getBusca().doClick();
+				}else if(tela.getLimpar().hasFocus()) {
+					tela.getLimpar().doClick();
+				}else if(tela2.getEditar().hasFocus()) {
+					tela2.getEditar().doClick();
+				}else if(tela2.getCancelar().hasFocus()) {
+					tela2.getCancelar().doClick();
+				}else if(tela2.getLimpar().hasFocus()) {
+					tela2.getLimpar().doClick();
+				}else {
+				tela.getCadastrar().doClick();
+				}
+			}
+			
+		}
+		
+
+		}
+
 	
+
 }
