@@ -3,15 +3,22 @@
  */
 package View;
 
+import java.awt.Color;
+import java.awt.Component;
+import java.awt.GridBagConstraints;
 import java.awt.GridBagLayout;
 import java.awt.HeadlessException;
 
+import javax.swing.BorderFactory;
+import javax.swing.BoxLayout;
 import javax.swing.ButtonGroup;
 import javax.swing.JButton;
 import javax.swing.JCheckBox;
 import javax.swing.JComboBox;
+import javax.swing.JComponent;
 import javax.swing.JFrame;
 import javax.swing.JLabel;
+import javax.swing.JPanel;
 import javax.swing.JRadioButton;
 import javax.swing.JTextArea;
 import javax.swing.JTextField;
@@ -29,9 +36,10 @@ public class ViewRegistrarDespesas extends JFrame {
 	dataPagamentoLabel,
 	descricaoLabel,
 	valorLabel,
-	selecioneAptoLabel;
+	selecioneAptoLabel,
+	idNumeroLabel;
 	private JTextArea  descricaoTextArea;
-	private JTextField idTextField,
+	private JTextField 
 	dataLancamentoTextField,
 	dataPagamentoTextField,
 	valorTextField;
@@ -42,19 +50,20 @@ public class ViewRegistrarDespesas extends JFrame {
 	cancelarButton;
 	private JComboBox<String> aptosComboBox;
 	private ButtonGroup despesasButtonGroup;
+	
 	/**
 	 *
 	 */
 	public ViewRegistrarDespesas() {
 		super("Registar despesa");
 		idLabel = new JLabel("Id");
-		dataLancamentoLabel = new JLabel("Data Lan�amento");
+		idNumeroLabel = new JLabel("Numero do Id");
+		dataLancamentoLabel = new JLabel("Data Lancamento");
 		dataPagamentoLabel = new JLabel("Data pagamento");
-		descricaoLabel = new JLabel("Descri��o");
+		descricaoLabel = new JLabel("Descricao");
 		valorLabel = new JLabel("Valor R$");
 		selecioneAptoLabel = new JLabel("Selecione o apartamento");
 		descricaoTextArea = new JTextArea(2, 15); // TODO: Ver o quanto precisa ajustar.
-		idTextField = new JTextField(5);
 		dataLancamentoTextField = new JTextField(10);
 		dataPagamentoTextField = new JTextField(10);
 		valorTextField = new JTextField(10);
@@ -65,16 +74,47 @@ public class ViewRegistrarDespesas extends JFrame {
 		cancelarButton = new JButton("Cancelar");
 		aptosComboBox = new JComboBox<String>();// TODO: criar um método lá no Controller para carregar com os numeros dos aptos.
 		despesasButtonGroup = new ButtonGroup();
-
+		
 		despesasButtonGroup.add(despesaConjuntaRadioButton);
 		despesasButtonGroup.add(despesaIndividualRadioButton);
-
-		setLayout(new GridBagLayout());
-		setSize(535, 430);
+		
+		addComponent(idLabel, 16, 45, 15, 15, false);
+		addComponent(idNumeroLabel, 45, 45, 133, 15, true);
+		addComponent(dataLancamentoLabel, 16, 87, 125, 15, false);
+		addComponent(dataLancamentoTextField, 150, 87, 100, 15, true);
+		addComponent(dataPagamentoLabel, 275, 87, 125, 15, false);
+		addComponent(dataPagamentoTextField, 395, 87, 100, 15, true);
+		addComponent(descricaoLabel, 16, 130, 125, 15, false);
+		addComponent(descricaoTextArea, 85, 130, 409, 80, true);
+		addComponent(valorLabel, 25, 235, 60, 15, false);
+		addComponent(valorTextField, 85, 235, 60, 15, true);
+		addComponent(despesaRecorrenteCheckBox, 150, 235, 170, 15, true);
+		addComponent(despesaIndividualRadioButton, 85, 270, 170, 15, true);
+		addComponent(selecioneAptoLabel, 255, 270, 175, 15, false);
+		addComponent(aptosComboBox, 430, 270, 65, 15, true);
+		addComponent(despesaConjuntaRadioButton, 85, 290, 170, 15, true);
+		addComponent(despesaConjuntaRadioButton, 85, 290, 170, 15, true);
+		addComponent(registrarButton, 85, 320, 130, 20, false);
+		addComponent(cancelarButton, 250, 320, 130, 20, false);
+		
+		setLayout(null);
+		setSize(510, 400);
 		setResizable(false);
 		setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
 		setVisible(false);
 
+	}
+	
+	private void addComponent(JComponent c, int x, int y, int width, int height, boolean isBorded) {
+		c.setBounds(x, y, width, height);
+		if (isBorded) {
+			c.setBorder(BorderFactory.createLineBorder(Color.black));
+		}
+		this.add(c);
+	}
+	
+	public static void main(String[] args) {
+		(new ViewRegistrarDespesas()).setVisible(true);
 	}
 	/**
 	 * @return the aptosComboBox
@@ -99,12 +139,6 @@ public class ViewRegistrarDespesas extends JFrame {
 	 */
 	public JTextArea getDescricaoTextArea() {
 		return descricaoTextArea;
-	}
-	/**
-	 * @return the idTextField
-	 */
-	public JTextField getIdTextField() {
-		return idTextField;
 	}
 	/**
 	 * @return the dataLancamentoTextField
@@ -155,6 +189,12 @@ public class ViewRegistrarDespesas extends JFrame {
 		return valorTextField;
 	}
 	
-	
+	/**
+	 * @return the idNumeroLabel
+	 */
+	public JLabel getIdNumeroLabel() {
+		return idNumeroLabel;
+	}
+
 
 }
