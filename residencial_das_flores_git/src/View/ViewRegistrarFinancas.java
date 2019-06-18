@@ -36,9 +36,8 @@ public class ViewRegistrarFinancas extends JFrame {
 	dataPagamentoTextField,
 	valorTextField;
 	private JCheckBox despesaRecorrenteCheckBox;
-	private JRadioButton despesaIndividualRadioButton,
-	despesaConjuntaRadioButton, contaIndividualRadioButton,
-	contaConjuntaRadioButton, despesaRadioButton, contaRadioButton;
+	private JRadioButton financaIndividualRadioButton,
+	financaConjuntaRadioButton, despesaRadioButton, contaRadioButton;
 	private JButton registrarButton,
 	cancelarButton;
 	private JComboBox<String> aptosComboBox;
@@ -60,10 +59,8 @@ public class ViewRegistrarFinancas extends JFrame {
 		dataPagamentoTextField = new JTextField(10);
 		valorTextField = new JTextField(10);
 		despesaRecorrenteCheckBox = new JCheckBox("Despesa recorrente");
-		despesaIndividualRadioButton = new JRadioButton("Despesa individual");
-		despesaConjuntaRadioButton = new JRadioButton("Despesa conjunta");
-		contaIndividualRadioButton = new JRadioButton("Conta individual");
-		contaConjuntaRadioButton = new JRadioButton("Conta conjunta");
+		financaIndividualRadioButton = new JRadioButton("Individual");
+		financaConjuntaRadioButton = new JRadioButton("Conjunta");
 		despesaRadioButton = new JRadioButton("Registar despesa");
 		contaRadioButton = new JRadioButton("Registrar conta a receber");
 		registrarButton = new JButton("Registrar");
@@ -74,10 +71,9 @@ public class ViewRegistrarFinancas extends JFrame {
 		
 		tipoFinancaButtonGroup.add(contaRadioButton);
 		tipoFinancaButtonGroup.add(despesaRadioButton);
-		individualOuConjuntaButtonGroup.add(despesaConjuntaRadioButton);
-		individualOuConjuntaButtonGroup.add(despesaIndividualRadioButton);
-		individualOuConjuntaButtonGroup.add(contaIndividualRadioButton);
-		individualOuConjuntaButtonGroup.add(contaConjuntaRadioButton);
+		individualOuConjuntaButtonGroup.add(financaConjuntaRadioButton);
+		individualOuConjuntaButtonGroup.add(financaIndividualRadioButton);
+		
 		
 		addComponent(instrucaoLabel, 150, 15, 190, 15, false);
 		addComponent(contaRadioButton, 85, 45, 200, 15, false);
@@ -91,11 +87,11 @@ public class ViewRegistrarFinancas extends JFrame {
 		addComponent(valorLabel, 25, 235, 60, 15, false);
 		addComponent(valorTextField, 85, 235, 60, 15, true);
 		addComponent(despesaRecorrenteCheckBox, 150, 235, 170, 15, true);
-		addComponent(despesaIndividualRadioButton, 85, 270, 170, 15, true);
+		addComponent(financaIndividualRadioButton, 85, 270, 170, 15, true);
 		addComponent(selecioneAptoLabel, 255, 270, 175, 15, false);
 		addComponent(aptosComboBox, 430, 270, 65, 15, true);
-		addComponent(despesaConjuntaRadioButton, 85, 290, 170, 15, true);
-		addComponent(despesaConjuntaRadioButton, 85, 290, 170, 15, true);
+		addComponent(financaConjuntaRadioButton, 85, 290, 170, 15, true);
+		addComponent(financaConjuntaRadioButton, 85, 290, 170, 15, true);
 		addComponent(registrarButton, 85, 320, 130, 20, false);
 		addComponent(cancelarButton, 250, 320, 130, 20, false);
 		
@@ -160,18 +156,7 @@ public class ViewRegistrarFinancas extends JFrame {
 	public JCheckBox getDespesaRecorrenteCheckBox() {
 		return despesaRecorrenteCheckBox;
 	}
-	/**
-	 * @return the despesaIndividualRadioButton
-	 */
-	public JRadioButton getDespesaIndividualRadioButton() {
-		return despesaIndividualRadioButton;
-	}
-	/**
-	 * @return the despesaConjuntaRadioButton
-	 */
-	public JRadioButton getDespesaConjuntaRadioButton() {
-		return despesaConjuntaRadioButton;
-	}
+	
 	/**
 	 * @return the cancelarButton
 	 */
@@ -189,6 +174,34 @@ public class ViewRegistrarFinancas extends JFrame {
 	 */
 	public JTextField getValorTextField() {
 		return valorTextField;
+	}
+
+	/**
+	 * @return the financaIndividualRadioButton
+	 */
+	public JRadioButton getFinancaIndividualRadioButton() {
+		return financaIndividualRadioButton;
+	}
+
+	/**
+	 * @return the financaConjuntaRadioButton
+	 */
+	public JRadioButton getFinancaConjuntaRadioButton() {
+		return financaConjuntaRadioButton;
+	}
+
+	/**
+	 * @return the despesaRadioButton
+	 */
+	public JRadioButton getDespesaRadioButton() {
+		return despesaRadioButton;
+	}
+
+	/**
+	 * @return the contaRadioButton
+	 */
+	public JRadioButton getContaRadioButton() {
+		return contaRadioButton;
 	}
 	
 	
