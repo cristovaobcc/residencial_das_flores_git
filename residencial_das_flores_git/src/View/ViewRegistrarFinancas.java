@@ -111,9 +111,9 @@ public class ViewRegistrarFinancas extends JFrame {
 		this.add(c);
 	}
 	
-	public static void main(String[] args) {
-		(new ViewRegistrarFinancas()).setVisible(true);
-	}
+//	public static void main(String[] args) {
+//		(new ViewRegistrarFinancas()).setVisible(true);
+//	}
 	/**
 	 * @return the aptosComboBox
 	 */
@@ -203,8 +203,19 @@ public class ViewRegistrarFinancas extends JFrame {
 	public JRadioButton getContaRadioButton() {
 		return contaRadioButton;
 	}
-	
-	
 
+	/**
+	 * @return the registrarButton
+	 */
+	public JButton getRegistrarButton() {
+		return registrarButton;
+	}
 
+	/**
+	 * @return the tipoFinancaButtonGroup
+	 */
+	public ButtonGroup getTipoFinancaButtonGroup() {
+		return tipoFinancaButtonGroup;
+	}
+	
 }

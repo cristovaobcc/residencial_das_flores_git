@@ -8,8 +8,7 @@ package Model;
  *
  */
 public class CalculoFinancaIndividual implements CalcularFinancaBehavior{
-	private Apartamento apto;
-
+	
 	public CalculoFinancaIndividual(Apartamento apto, ContaAReceber contaAReceber) {
 		apto.getFinancas().add(contaAReceber);
 	}

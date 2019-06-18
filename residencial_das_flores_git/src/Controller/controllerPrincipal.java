@@ -76,6 +76,10 @@ public class controllerPrincipal implements ActionListener,KeyListener{
 			controllerlogin.viewitem.setVisible(true);
 		}
 		
+		if (e.getSource()==controllerlogin.viewprincipal.getMenuItemControleFinancas()) {
+			controllerlogin.viewRegistrarFinancas.setVisible(true);
+		}
+		
 		
 	}
 

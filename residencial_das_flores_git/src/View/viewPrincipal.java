@@ -115,7 +115,7 @@ public class viewPrincipal extends JFrame implements Observer{
 		buttonCadastroItem.setBackground(Color.white);
 		panelEsquerda.add(buttonCadastroItem);
 		
-		buttonCadastroDespesa = new JButton("Despesa");
+		buttonCadastroDespesa = new JButton("FinanÃ§as");
 		buttonCadastroDespesa.setBounds(28, 228, 117, 36);
 		buttonCadastroDespesa.setBackground(Color.white);
 		panelEsquerda.add(buttonCadastroDespesa);
@@ -150,7 +150,7 @@ public class viewPrincipal extends JFrame implements Observer{
 		labelQtdAptAlg.setBounds(208, 118, 188, 14);
 		panelPrincipal.add(labelQtdAptAlg);
 		
-		labelQtdAptDsp = new JLabel("Total Apartamentos Disponíveis : ");
+		labelQtdAptDsp = new JLabel("Total Apartamentos Disponï¿½veis : ");
 		labelQtdAptDsp.setBounds(208, 151, 190, 14);
 		panelPrincipal.add(labelQtdAptDsp);
 		
