@@ -59,7 +59,7 @@ public class controllerMorador extends Observable implements ActionListener,KeyL
 		for(Morador morador : BaseDados.moradores) {
 			controllerlogin.viewmorador.getAreaText().append(
 					"********Dados*********" +
-					"\nHï¿½spede do Quarto Nï¿½"+morador.numeroapartamento +
+					"\nHospede do Quarto Nº"+morador.numeroapartamento +
 					"\nNome : "+ morador.nome +
 					"\nCPF : "+ morador.cpf +
 					"\nRG : "+ morador.rg +

@@ -177,4 +177,12 @@ public class BaseDados {
 		return disponiveis;
 	}
 	
+	public static ArrayList<String> ApartamentosCadastrados(){
+		ArrayList<String> cadastrados = new ArrayList<>();
+		for(Apartamento ap:getApartamentos()) {
+			cadastrados.add(ap.getNumeroPorta());
+		}
+		return cadastrados;
+	}
+	
 }

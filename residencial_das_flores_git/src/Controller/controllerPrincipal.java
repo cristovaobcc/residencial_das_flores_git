@@ -28,6 +28,7 @@ public class controllerPrincipal implements ActionListener,KeyListener{
 		controllerlogin.viewprincipal.getButtonCadastroItem().addActionListener(this);
 		controllerlogin.viewprincipal.addKeyListener(this);
 		controllerlogin.viewprincipal.getMenuItemControleFinancas().addActionListener(this);
+		controllerlogin.viewprincipal.getMenuItemExibirFinancas().addActionListener(this);
 		
 		controllerlogin.viewprincipal.getButtonCadastroMorador().addKeyListener(this);
 		controllerlogin.viewprincipal.getButtonCadastroApt().addKeyListener(this);
@@ -35,7 +36,7 @@ public class controllerPrincipal implements ActionListener,KeyListener{
 		controllerlogin.viewprincipal.getButtonCadastroItem().addKeyListener(this);
 		controllerlogin.viewprincipal.getButtonStatusResidencia().addKeyListener(this);
 		controllerlogin.viewprincipal.getButtonCadastroDespesa().addKeyListener(this);
-		
+		controllerlogin.viewprincipal.getButtonCadastroDespesa().addActionListener(this);
 		StatusApartamentos.calcularAlugados();
 		StatusApartamentos.calcularDisponiveis();
 		StatusApartamentos.calcularTotal();
@@ -79,7 +80,16 @@ public class controllerPrincipal implements ActionListener,KeyListener{
 		}
 		
 		if (e.getSource()==controllerlogin.viewprincipal.getMenuItemControleFinancas()) {
+			
+			StatusApartamentos.atualizarListaApartamentos(controllerlogin);
 			controllerlogin.viewRegistrarFinancas.setVisible(true);
+		}
+		
+		if(e.getSource()==controllerlogin.viewprincipal.getMenuItemExibirFinancas()) {
+			controllerlogin.viewExibirfinancas.setVisible(true);
+		}
+		if(e.getSource()==controllerlogin.viewprincipal.getButtonCadastroDespesa()) {
+			controllerlogin.viewprincipal.getMenuItemControleFinancas().doClick();
 		}
 		
 		

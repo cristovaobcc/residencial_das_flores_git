@@ -17,6 +17,7 @@ import View.ViewRegistrarFinancas;
 import View.viewAlterarItens;
 import View.viewAlterarMorador;
 import View.viewAlterarSenha;
+import View.viewExibirFinancas;
 import View.viewItem;
 import View.viewLogin;
 import View.viewMorador;
@@ -39,7 +40,8 @@ public class controllerLogin extends KeyAdapter implements ActionListener,MouseL
 	public viewAlterarItens viewalteraritens = new viewAlterarItens();
 	public viewRemoveItens viewremoveritensItens = new viewRemoveItens();
 	
-	public ViewRegistrarFinancas viewRegistrarFinancas = new ViewRegistrarFinancas(); 
+	public ViewRegistrarFinancas viewRegistrarFinancas = new ViewRegistrarFinancas();
+	public viewExibirFinancas viewExibirfinancas = new viewExibirFinancas();
 	
 	public controllerLogin(viewLogin viewlogin){
 		this.viewlogin = viewlogin;	

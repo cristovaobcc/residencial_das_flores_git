@@ -1,6 +1,7 @@
 package Model;
 
 import java.awt.Dimension;
+import java.util.ArrayList;
 
 import Controller.controllerLogin;
 
@@ -26,7 +27,7 @@ public class StatusApartamentos {
 	public static void calcularAlugados() {
 		int total=0;
 		for(Apartamento a:BaseDados.getApartamentos()) {
-			if(a.getTipoOcupacao().equals("Proprietï¿½rio") || a.getTipoOcupacao().equals("Inquilino")) {
+			if(a.getTipoOcupacao().equals("Proprietário") || a.getTipoOcupacao().equals("Inquilino")) {
 				total++;
 			}
 		}
@@ -48,6 +49,14 @@ public class StatusApartamentos {
 			
 		for(Apartamento a:BaseDados.ApartamentosDisponiveis()) {
 			controllerlogin.viewmorador.getCombobox().addItem(a.getNumeroPorta());
+		}
+	}
+	public static void atualizarListaApartamentos(controllerLogin controllerlogin) {
+		controllerlogin.viewRegistrarFinancas.getAptosComboBox().removeAllItems();
+		
+		ArrayList<String> cadastrados = BaseDados.ApartamentosCadastrados();
+		for(int i=0;i<BaseDados.getApartamentos().size();i++) {
+			controllerlogin.viewRegistrarFinancas.getAptosComboBox().addItem(cadastrados.get(i));
 		}
 	}
 	

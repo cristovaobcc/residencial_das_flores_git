@@ -31,7 +31,7 @@ public class viewPrincipal extends JFrame implements Observer{
 	JPanel panelPrincipal,panelEsquerda;
 	JMenuBar menuBar;
 	JMenu menuMoradores,menuApartamentos,menuFinancas,menuItens,menuSair;
-	JMenuItem menuItemControleMoradores,menuItemControleApartamentos,menuItemControleFinancas,menuItemControleItens,menuItemSair;
+	JMenuItem menuItemControleMoradores,menuItemControleApartamentos,menuItemControleFinancas,menuItemExibirFinancas,menuItemControleItens,menuItemSair;
 	JLabel labelHora,labelData,labelMenuRapido,labelCadastro,labelGerenciamento,labelCreditos,labelQtdApt,labelQtdAptAlg,
 			labelQtdAptDsp,labelNumeroApt,labelNumeroAptAlg,labelNumeroAptDsp,labelVersao,labelImagem;
 
@@ -66,9 +66,12 @@ public class viewPrincipal extends JFrame implements Observer{
 		menuApartamentos.add(menuItemControleApartamentos);
 		
 		menuFinancas = new JMenu("Finan\u00E7as");
+		
 		menuBar.add(menuFinancas);	
-		menuItemControleFinancas = new JMenuItem("Controle Finan\u00E7as");
+		menuItemControleFinancas = new JMenuItem("Cadastro de Finan\u00E7as");
+		menuItemExibirFinancas = new JMenuItem("Exibir finanças");
 		menuFinancas.add(menuItemControleFinancas);
+		menuFinancas.add(menuItemExibirFinancas);
 		
 		menuItens = new JMenu("Itens");
 		menuBar.add(menuItens);	
@@ -115,7 +118,7 @@ public class viewPrincipal extends JFrame implements Observer{
 		buttonCadastroItem.setBackground(Color.white);
 		panelEsquerda.add(buttonCadastroItem);
 		
-		buttonCadastroDespesa = new JButton("FinanÃ§as");
+		buttonCadastroDespesa = new JButton("Finanças");
 		buttonCadastroDespesa.setBounds(28, 228, 117, 36);
 		buttonCadastroDespesa.setBackground(Color.white);
 		panelEsquerda.add(buttonCadastroDespesa);
@@ -150,7 +153,7 @@ public class viewPrincipal extends JFrame implements Observer{
 		labelQtdAptAlg.setBounds(208, 118, 188, 14);
 		panelPrincipal.add(labelQtdAptAlg);
 		
-		labelQtdAptDsp = new JLabel("Total Apartamentos Disponï¿½veis : ");
+		labelQtdAptDsp = new JLabel("Total Apartamentos Disponiveis : ");
 		labelQtdAptDsp.setBounds(208, 151, 190, 14);
 		panelPrincipal.add(labelQtdAptDsp);
 		
@@ -264,6 +267,11 @@ public class viewPrincipal extends JFrame implements Observer{
 			
 		}
 	
+	}
+	
+
+	public JMenuItem getMenuItemExibirFinancas() {
+		return menuItemExibirFinancas;
 	}
 
 	@Override

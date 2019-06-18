@@ -22,7 +22,7 @@ import View.viewLogin;
 public class App {
 	public static void main(String[] args) {
 		BaseDados.getApartamentos().add(new Apartamento("1", 2, "Vazio"));
-		BaseDados.getApartamentos().add(new Apartamento("2", 2, "Proprietï¿½rio"));
+		BaseDados.getApartamentos().add(new Apartamento("2", 2, "Proprietário"));
 		BaseDados.getApartamentos().add(new Apartamento("3", 2, "Vazio"));
 		
 		controllerLogin controller = new controllerLogin(new viewLogin());

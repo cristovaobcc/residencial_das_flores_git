@@ -47,8 +47,8 @@ public class ViewRegistrarFinancas extends JFrame {
 	 *
 	 */
 	public ViewRegistrarFinancas() {
-		super("Registar FinanÃ§a");
-		instrucaoLabel = new JLabel("Selecione o tipo de financa:");
+		super("Registar Finança");
+		instrucaoLabel = new JLabel("Selecione o tipo de finança:");
 		dataLancamentoLabel = new JLabel("Data Lancamento");
 		dataPagamentoLabel = new JLabel("Data pagamento");
 		descricaoLabel = new JLabel("Descricao");
@@ -74,6 +74,8 @@ public class ViewRegistrarFinancas extends JFrame {
 		individualOuConjuntaButtonGroup.add(financaConjuntaRadioButton);
 		individualOuConjuntaButtonGroup.add(financaIndividualRadioButton);
 		
+		contaRadioButton.setSelected(true);
+		financaIndividualRadioButton.setSelected(true);
 		
 		addComponent(instrucaoLabel, 150, 15, 190, 15, false);
 		addComponent(contaRadioButton, 85, 45, 200, 15, false);
@@ -98,6 +100,7 @@ public class ViewRegistrarFinancas extends JFrame {
 		setLayout(null);
 		setSize(510, 400);
 		setResizable(false);
+		setLocationRelativeTo(null);
 		setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
 		setVisible(false);
 
