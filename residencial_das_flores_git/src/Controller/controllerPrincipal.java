@@ -27,12 +27,14 @@ public class controllerPrincipal implements ActionListener,KeyListener{
 		controllerlogin.viewprincipal.getButtonCadastroItem().addActionListener(this);
 		controllerlogin.viewprincipal.getButtonCadastroItem().addActionListener(this);
 		controllerlogin.viewprincipal.addKeyListener(this);
+		controllerlogin.viewprincipal.getMenuItemControleFinancas().addActionListener(this);
 		
 		controllerlogin.viewprincipal.getButtonCadastroMorador().addKeyListener(this);
 		controllerlogin.viewprincipal.getButtonCadastroApt().addKeyListener(this);
 		controllerlogin.viewprincipal.getButtonCadastroDespesa().addKeyListener(this);
 		controllerlogin.viewprincipal.getButtonCadastroItem().addKeyListener(this);
 		controllerlogin.viewprincipal.getButtonStatusResidencia().addKeyListener(this);
+		controllerlogin.viewprincipal.getButtonCadastroDespesa().addKeyListener(this);
 		
 		StatusApartamentos.calcularAlugados();
 		StatusApartamentos.calcularDisponiveis();
