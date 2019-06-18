@@ -13,6 +13,7 @@ import javax.swing.JOptionPane;
 
 import Model.Sindico;
 import View.TelaMensagem;
+import View.ViewRegistrarFinancas;
 import View.viewAlterarItens;
 import View.viewAlterarMorador;
 import View.viewAlterarSenha;
@@ -26,8 +27,8 @@ import View.viewRemoverMorador;
 public class controllerLogin extends KeyAdapter implements ActionListener,MouseListener{
 	public viewLogin viewlogin;
 	
-	//instanciar os viewrs para poder implementalos em seus próprios controllers,
-	//no construtor de cada viewer deve possuir só o "this.controllermenu = controllermenu".
+	//instanciar os viewrs para poder implementalos em seus prï¿½prios controllers,
+	//no construtor de cada viewer deve possuir sï¿½ o "this.controllermenu = controllermenu".
 	public viewPrincipal viewprincipal = new viewPrincipal();
 	public viewAlterarSenha viewalterarsenha = new viewAlterarSenha();
 	public viewMorador viewmorador = new viewMorador();
@@ -37,6 +38,8 @@ public class controllerLogin extends KeyAdapter implements ActionListener,MouseL
 	public viewItem viewitem = new viewItem();
 	public viewAlterarItens viewalteraritens = new viewAlterarItens();
 	public viewRemoveItens viewremoveritensItens = new viewRemoveItens();
+	
+	public ViewRegistrarFinancas viewRegistrarFinancas = new ViewRegistrarFinancas(); 
 	
 	public controllerLogin(viewLogin viewlogin){
 		this.viewlogin = viewlogin;	

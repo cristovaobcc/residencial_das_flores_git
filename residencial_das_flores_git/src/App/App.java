@@ -2,6 +2,7 @@ package App;
 
 
 import Controller.ControllerApartamento;
+import Controller.ControllerFinancas;
 import Controller.controllerAlterarItens;
 import Controller.controllerAlterarMorador;
 import Controller.controllerAlterarSenha;
@@ -21,7 +22,7 @@ import View.viewLogin;
 public class App {
 	public static void main(String[] args) {
 		BaseDados.getApartamentos().add(new Apartamento("1", 2, "Vazio"));
-		BaseDados.getApartamentos().add(new Apartamento("2", 2, "Proprietário"));
+		BaseDados.getApartamentos().add(new Apartamento("2", 2, "Proprietï¿½rio"));
 		BaseDados.getApartamentos().add(new Apartamento("3", 2, "Vazio"));
 		
 		controllerLogin controller = new controllerLogin(new viewLogin());
@@ -35,13 +36,17 @@ public class App {
 		ControllerApartamento controllerApartamento = new ControllerApartamento(new viewApartamento(), new viewEditarApartamento(),controller);
 		controllerApartamento.addObserver(controller.viewprincipal);
 		
-		//mudanças
+		//mudanï¿½as
 		controllerItem ci = new controllerItem(controller);
 		ci.addObserver(controller.viewprincipal);
 		
 		new controllerAlterarItens(controller);
 		controllerRemoverItens cri = new controllerRemoverItens(controller);
 		cri.addObserver(controller.viewprincipal);
+		
+		ControllerFinancas cf = new ControllerFinancas(controller);
+		cf.addObserver(controller.viewprincipal);
+		
 	}
 
 }
